@@ -1,6 +1,6 @@
 using VirtualPlantLab
 using Ecophys, SkyDomes
-using StaticArrays
+
 
 """
     simple_Ta_RH(; lat::Float64, DOY::Int64, h::Float64, 
@@ -15,7 +15,7 @@ using StaticArrays
     - 
 
 """
- 
+
  #=Simple model for computing air temperature and relative humidity at a specific time of the day (h) and day of the year (DOY).
     Algorithm that calculates the variation of air temperature during the day as a function of daily maximum and minimum temperature registered at a weather station (Goudriaan & van Laar, 1994).
         We use the following equations to compute air temperature during the day and night:

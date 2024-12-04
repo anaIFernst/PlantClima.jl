@@ -4,6 +4,8 @@ authors = ["anaIFernst <ana.ferreiraernst@wur.nl> and contributors"]
 version = "1.0.0-DEV"
 
 [deps]
+Ecophys = "19467474-d12d-47c9-939f-3e50fbfd93ad"
+SkyDomes = "1838625c-7cf7-40c6-898b-904883e4b556"
 VirtualPlantLab = "b977ecfa-1b9a-418d-909d-4ebe565736ce"
 
 [compat]
