@@ -38,6 +38,8 @@ using Ecophys, SkyDomes
                 But uses different equations to compute Tair
                     C -> apply equation 1
                     D -> apply equation 2=#
+
+
 function simple_Ta_RH(; lat::Float64, DOY::Int64, h::Float64, Tmin::Vector{Float64}, Tmax::Vector{Float64}, ea::Vector{Float64}, p::Float64 = 1.5, tc::Float64 = 4.0)
     #Indexes for Tmin, Tmax, and ea: 1 = DOY - 1, 2 = DOY, 3 = DOY + 1
     DL = day_length(lat, declination(DOY))
