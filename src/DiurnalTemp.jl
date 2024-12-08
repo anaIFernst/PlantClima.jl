@@ -68,9 +68,9 @@ end
     - `lat`: latitide, []
     - `DOY`: day of the year, [d]
     - `h`: hour of the day, [h]
-    - `Tmin`: vector of daily minimum temperature for the previous day, current day, and next day, [°C]
-    - `Tmax`: vector of daily maximum temperature for the previous day, current day, and next day, [°C]
-    - `ea`: vector of daily average vapor pressure for the previous day, current day, and next day, [kPa]
+    - `Tmin`: vector of daily minimum temperature for the previous day, current day, and next day, [K]
+    - `Tmax`: vector of daily maximum temperature for the previous day, current day, and next day, [K]
+    - `ea`: vector of daily average vapor pressure for the previous day, current day, and next day, [Pa]
     - 
 
 """
