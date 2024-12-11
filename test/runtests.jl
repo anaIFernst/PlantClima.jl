@@ -8,7 +8,7 @@ DocMeta.setdocmeta!(PlantClima,
     :DocTestSetup,
     :(using PlantClima);
     recursive = true)
-doctest(PlantCliam)
+doctest(PlantClima)
 
 # Aqua
 @testset "Aqua" begin
