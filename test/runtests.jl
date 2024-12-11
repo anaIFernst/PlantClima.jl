@@ -2,5 +2,8 @@ using PlantClima
 using Test
 
 @testset "PlantClima.jl" begin
-    # Write your tests here.
+
+    # Test scripts
+    include("test_DiurnalTemp.jl")   
+
 end
