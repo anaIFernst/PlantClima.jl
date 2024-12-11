@@ -2,7 +2,7 @@
 # PlantClima.jl
 
 ```@meta
-CurrentModule = SkyDomes
+CurrentModule = PlantClima
 ```
 
 ## Index
