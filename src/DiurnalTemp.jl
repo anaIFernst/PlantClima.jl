@@ -5,27 +5,28 @@ import Unitful: K, °C, Pa, kPa
 #= 
 
 Simple model for computing air temperature and relative humidity at a specific time of the day (h) and day of the year (DOY).
-    Algorithm that calculates the variation of air temperature during the day as a function of daily maximum and minimum temperature registered at a weather station (Goudriaan & van Laar, 1994).
-        We use the following equations to compute air temperature during the day and night:
-        - During the day (equation 1): Tair = Tmin + (Tmax - Tmin) * sin(π*(h-sunrise)/(DL+2*p))
-        - During the night (equation 2): Tair = Tmin + (Tmax - Tmin) * exp(-(h + 24 - sunset)/tc)
-        Where:
-            - Tmin and Tmax are the daily minimum and maximum temperature, respectively
-            - h is the time of the day in hours
-            - sunrise and sunset are the times of sunrise and sunset, respectively
-            - DL is the day length
-            - p is the time between solar noon and the normal time of Tmax
-            - tc is the nocturnal time coefficient
-        Day is divided in 4 periods:
-            A (between midnight and sunrise), -> apply equation to compute temperature during the night perid (equation 2)
-                Tair depends on Tmax of previous day and Tmin of present day
-            B (between sunrise and normal time of Tmax), -> apply equation to compute temperature during the day period (equation 1)
-                Tair dependes on Tmin and Tmax of present day
-            C (between normal time of Tmax and sunset) and D (between sunset and midnight)
-                Tair of period C and D depends on the Tmax of present day and Tmin of the next day
-                But uses different equations to compute Tair
-                    C -> apply equation 1
-                    D -> apply equation 2 
+Algorithm that calculates the variation of air temperature during the day as a function of daily maximum and minimum temperature registered at a weather station.
+    We use the following equations to compute air temperature during the day and night:
+    - During the day (equation 1): Tair = Tmin + (Tmax - Tmin) * sin(π*(h-sunrise)/(DL+2*p))
+    - During the night (equation 2): Tair = Tmin + (Tmax - Tmin) * exp(-(h + 24 - sunset)/tc)
+    Where:
+        - Tmin and Tmax are the daily minimum and maximum temperature, respectively
+        - h is the time of the day in hours
+        - sunrise and sunset are the times of sunrise and sunset, respectively
+        - DL is the day length
+        - p is the time between solar noon and the normal time of Tmax
+        - tc is the nocturnal time coefficient
+Day is divided in 4 periods:
+    A (between midnight and sunrise), -> apply equation to compute temperature during the night perid (equation 2)
+        Tair depends on Tmax of previous day and Tmin of present day
+    B (between sunrise and normal time of Tmax), -> apply equation to compute temperature during the day period (equation 1)
+        Tair dependes on Tmin and Tmax of present day
+    C (between normal time of Tmax and sunset) and D (between sunset and midnight)
+        Tair of period C and D depends on the Tmax of present day and Tmin of the next day
+        But uses different equations to compute Tair
+            C -> apply equation 1
+            D -> apply equation 2 
+
 =#
 
 # Unitless version
@@ -40,8 +41,9 @@ simple_Ta_RH(; lat::Float64, DOY::Float64, h::Float64,
     - `Tmin`: vector of daily minimum temperature for the previous day, current day, and next day, [°C]
     - `Tmax`: vector of daily maximum temperature for the previous day, current day, and next day, [°C]
     - `ea`: vector of daily average vapor pressure for the previous day, current day, and next day, [kPa]
-    - 
 
+Citation:
+    Goudriaan, J., & van Laar, H. H. (1994). Modelling potential crop growth processes. Textbook with exercises. Springer Science & Business Media.
 """
 function simple_Ta_RH(; lat::Float64, DOY::Float64, h::Float64, Tmin::Vector{Float64}, Tmax::Vector{Float64}, ea::Vector{Float64}, p::Float64 = 1.5, tc::Float64 = 4.0)
     #Conversion to types with units
@@ -70,7 +72,6 @@ end
     - `Tmin`: vector of daily minimum temperature for the previous day, current day, and next day, [K]
     - `Tmax`: vector of daily maximum temperature for the previous day, current day, and next day, [K]
     - `ea`: vector of daily average vapor pressure for the previous day, current day, and next day, [Pa]
-    - 
 
 """
 function simple_Ta_RH_Q(; lat::W, DOY::W, h::W, 

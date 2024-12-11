@@ -3,6 +3,11 @@ uuid = "6929416b-c1e8-4b1c-a0ae-58fe036717ff"
 authors = ["anaIFernst <ana.ferreiraernst@wur.nl> and contributors"]
 version = "0.1.0"
 
+[deps]
+Ecophys = "19467474-d12d-47c9-939f-3e50fbfd93ad"
+SkyDomes = "1838625c-7cf7-40c6-898b-904883e4b556"
+Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
+
 [compat]
 julia = "1.6.7"
 

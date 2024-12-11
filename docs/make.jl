@@ -4,16 +4,18 @@ using Documenter
 DocMeta.setdocmeta!(PlantClima, :DocTestSetup, :(using PlantClima); recursive=true)
 
 makedocs(;
-    modules=[PlantClima],
-    authors="anaIFernst <ana.ferreiraernst@wur.nl> and contributors",
-    sitename="PlantClima.jl",
-    format=Documenter.HTML(;
-        canonical="https://anaIFernst.github.io/PlantClima.jl",
-        edit_link="master",
-        assets=String[],
+    doctest = false,
+    modules = [PlantClima],
+    authors = "anaIFernst <ana.ferreiraernst@wur.nl> and contributors",
+    sitename = "PlantClima.jl",
+    repo = "https://github.com/anaIFernst/PlantClima.jl/blob/{commit}{path}#{line}",
+    format = Documenter.HTML(;
+        prettyurls = get(ENV, "CI", "false") == "true",
+        edit_link = "master",
+        assets = String[],
     ),
-    pages=[
-        "Home" => "index.md",
+    pages = [
+        "API" => "index.md",
     ],
 )
 
